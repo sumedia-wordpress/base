@@ -1,0 +1,110 @@
+#suma-wrap .right {
+    float:right;
+}
+
+#suma-wrap .left {
+    float:left;
+}
+
+#suma-wrap .clear {
+    clear:both;
+}
+
+#suma-wrap .suma-content {
+    margin:20px 20px 20px 0;
+    background:#f5f5f5;
+    border:1px solid #ddd;
+    box-shadow:0 0 2px #ccc;
+    padding:15px;
+}
+
+#suma-wrap .suma-heading img {
+    height:32px;
+    float:left;
+    margin-right:15px;
+}
+
+#suma-wrap .suma-heading h1 {
+    padding:0;
+    margin:0;
+    font-family:Lato, sans-serif;
+    line-height:1em;
+}
+
+#suma-wrap .suma-heading h1 small {
+    font-size:.6em;
+}
+
+#suma-wrap .suma-heading small {
+    line-height:1em;
+}
+
+#suma-wrap .suma-overview-plugin {
+    border:1px solid #ccc;
+    border-top:2px solid #c90;
+    border-radius:2px;
+    padding:15px;
+    margin-right:10px;
+    margin-bottom:10px;
+    position:relative;
+}
+
+#suma-wrap .suma-overview-plugin h3 {
+    margin:0;
+    padding-bottom:5px;
+    border-bottom:1px solid #ccc;
+}
+
+#suma-wrap .suma-overview-plugin:after {
+    content:'';
+    clear:both;
+    display:block;
+    height:0;
+}
+
+#suma-wrap .suma-overview-plugin .sumedia-overview-plugin-description {
+    float:left;
+    width:75%;
+}
+
+#suma-wrap .suma-overview-plugin .sumedia-overview-plugin-actions {
+    float:right;
+    max-width:25%;
+    min-width:180px;
+    text-align:left;
+    border-left:1px solid #ddd;
+}
+
+#suma-wrap .suma-overview-plugin .sumedia-overview-plugin-actions p {
+    padding:5px 0 10px 10px;
+    margin:0;
+}
+
+#suma-wrap .suma-overview-plugin .sumedia-overview-plugin-description:after {
+    content:'';
+    clear:both;
+    height:0;
+    display:block;
+}
+
+#suma-wrap .suma-form fieldset {
+    border:1px solid #ccc;
+}
+
+#suma-wrap .suma-form .suma-form-option {
+    margin:20px;
+}
+
+#suma-wrap .suma-form .suma-form-label {
+    font-size:1.1em;
+    font-weight:bold;
+    width:100px;
+    display:inline-block;
+    float:left;
+}
+
+#suma-wrap .suma-form .suma-form-input input {
+    font-size:.9em;
+    min-height:initial;
+    line-height:1.7em;
+}
