@@ -9,13 +9,17 @@
  *
  * @wordpress-plugin
  * Plugin Name: Sumedia Base
- * Version:     0.1.0
+ * Plugin URI:  https://github.com/sumedia-wordpress/base
  * Description: Needed by other Sumedia Wordpress Projects
+ * Version:     0.1.0
+ * Requires at least: 5.3 (nothing else tested yet)
+ * Requires PHP: 5.3.2 (not tested, could work)
  * Author:      Sven Ullmann
  * Author URI:  https://www.sumedia-webdesign.de
+ * License:     GPL v3
  * Text Domain: sumedia-base
  * Domain Path: /languages/
- * License:     GPL v3
+ * Bug Reporting: https://github.com/sumedia-wordpress/base/issues
  *
  * WC requires at least: 3.0
  * WC tested up to: 3.8
