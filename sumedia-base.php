@@ -62,7 +62,7 @@ if (-1 == version_compare(PHP_VERSION, '5.6.0')) {
     if (!defined('SUMEDIA_PLUGIN_PATH')) {
         define('SUMEDIA_PLUGIN_URL', plugin_dir_url(__DIR__));
     }
-    define('SUMEDIA_BASE_PLUGIN_NAME', dirname(plugin_basename(__FILE__)));
+    define('SUMEDIA_BASE_PLUGIN_NAME', 'sumedia-base');
 
     require_once(__DIR__ . str_replace('/', DIRECTORY_SEPARATOR, '/inc/functions.php'));
 
