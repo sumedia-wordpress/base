@@ -11,7 +11,7 @@
  * Plugin Name: Sumedia Base
  * Plugin URI:  https://github.com/sumedia-wordpress/base
  * Description: Needed by other Sumedia Wordpress Projects
- * Version:     0.1.0
+ * Version:     0.1.1
  * Requires at least: 5.3 (nothing else tested yet)
  * Requires PHP: 5.6.0 (not tested, could work)
  * Author:      Sven Ullmann
@@ -55,7 +55,7 @@ if (-1 == version_compare(PHP_VERSION, '5.6.0')) {
     add_action('admin_notices', 'sumedia_base_phpversionlow_message');
 } else {
 
-    define('SUMEDIA_BASE_VERSION', '0.1.0');
+    define('SUMEDIA_BASE_VERSION', '0.1.1');
     define('SUMEDIA_PLUGIN_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
     define('SUMEDIA_PLUGIN_URL', plugin_dir_url(__DIR__));
     define('SUMEDIA_BASE_PLUGIN_NAME', dirname(plugin_basename(__FILE__)));
@@ -68,6 +68,15 @@ if (-1 == version_compare(PHP_VERSION, '5.6.0')) {
     $autoloader->register_autoload_dir(SUMEDIA_BASE_PLUGIN_NAME, Suma\ds('admin/view'));
     $autoloader->register_autoload_dir(SUMEDIA_BASE_PLUGIN_NAME, 'inc');
     $autoloader->register_autoloader();
+
+    add_action('plugins_loaded', 'sumedia_base_textdomain');
+    function sumedia_base_textdomain()
+    {
+        load_plugin_textdomain(
+            'sumedia-base',
+            false,
+            SUMEDIA_BASE_PLUGIN_NAME . DIRECTORY_SEPARATOR . 'languages');
+    }
 
     add_action('init', 'sumedia_base_init', 1);
     function sumedia_base_init()
