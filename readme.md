@@ -41,9 +41,9 @@ I don't know if i need it realy, but i like it's simple concept on
 encapsulate data and objects. It's much easier to deal with this class
 as with the global scope variables.
 
-### View Renderer
+### View
 
-I'd to manage some rendering stuff on the view site. I will provide some
+I want to manage some rendering stuff on the view site. I will provide some
 View Scripts beside the views template. Combine them and tell Wordpress how 
 to render it.
 

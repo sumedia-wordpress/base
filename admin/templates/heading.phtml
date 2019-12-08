@@ -1,0 +1,18 @@
+<?php
+
+if (!defined('SUMEDIA_BASE_VERSION')) {
+    header( 'Status: 403 Forbidden' );
+    header( 'HTTP/1.1 403 Forbidden' );
+    exit();
+}
+
+$heading = $this->get('sumedia_base_admin_view_heading');
+
+?>
+<div class="suma-content">
+    <div class="suma-heading">
+        <img src="<?php echo $heading->iconfile; ?>" alt="<?php echo esc_attr($heading->title); ?>" />
+        <h1><?php echo $heading->title ?> <small>&ndash; <?php echo $heading->side_title; ?></small></h1>
+        <small><?php echo __('Version', 'sumedia-base'); ?>: <?php echo $heading->version; ?></small>
+    </div>
+</div>

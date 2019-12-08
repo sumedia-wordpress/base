@@ -1,16 +1,11 @@
 <?php
 
-class Sumedia_Base_Admin_View_Plugins
+class Sumedia_Base_Admin_View_Plugins extends Sumedia_Base_View
 {
-    protected $plugins = [];
+    public $plugins = [];
 
-    public function set_plugin($pluginName, $data)
+    public function __construct()
     {
-        $this->plugins[$pluginName] = $data;
-    }
-
-    public function get_plugins()
-    {
-        return $this->plugins;
+        $this->template = SUMEDIA_PLUGIN_PATH . '/' . SUMEDIA_BASE_PLUGIN_NAME . '/admin/templates/plugins.phtml';
     }
 }
