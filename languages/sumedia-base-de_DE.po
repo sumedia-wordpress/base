@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Sumedia Base\n"
-"POT-Creation-Date: 2019-12-07 13:59+0100\n"
-"PO-Revision-Date: 2019-12-07 14:00+0100\n"
+"POT-Creation-Date: 2019-12-08 21:51+0100\n"
+"PO-Revision-Date: 2019-12-08 21:51+0100\n"
 "Last-Translator: Sven Ullmann <kontakt@sumedia-webdesign.de>\n"
 "Language-Team: Sven Ullmann <kontakt@sumedia-webdesign.de>\n"
 "Language: de_DE\n"
@@ -21,25 +21,33 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
-#: sumedia-base.php:47
-msgid "Your PHP version is to low for using Sumedia"
-msgstr "Ihre PHP Version ist für Sumedia Plugins zu niedrig"
-
-#: admin/templates/overview.phtml:14
+#: admin/view/class-admin-view-heading.php:16
 msgid "Sumedia Plugins"
 msgstr "Sumedia Plugins"
 
-#: admin/templates/overview.phtml:14
+#: admin/view/class-admin-view-heading.php:17
 msgid "Plugin Overview"
 msgstr "Plugin Übersicht"
+
+#: sumedia-base.php:53
+msgid "Your PHP version is to low for using Sumedia"
+msgstr "Ihre PHP Version ist für Sumedia Plugins zu niedrig"
+
+#: admin/templates/heading.phtml:16
+msgid "Version"
+msgstr "Version"
 
 #. Plugin Name of the plugin/theme
 msgid "Sumedia Base"
 msgstr "Sumedia Base"
 
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/sumedia-wordpress/base"
+msgstr ""
+
 #. Description of the plugin/theme
 msgid "Needed by other Sumedia Wordpress Projects"
-msgstr "Wir für die Verwendung anderer Sumedia Plugins benötigt."
+msgstr "Wir für die Verwendung anderer Sumedia Plugins benötigt"
 
 #. Author of the plugin/theme
 msgid "Sven Ullmann"
@@ -47,4 +55,4 @@ msgstr "Sven Ullmann"
 
 #. Author URI of the plugin/theme
 msgid "https://www.sumedia-webdesign.de"
-msgstr "https://www.sumedia-webdesign.de"
+msgstr ""

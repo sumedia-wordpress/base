@@ -13,7 +13,7 @@
  * Description: Needed by other Sumedia Wordpress Projects
  * Version:     0.1.0
  * Requires at least: 5.3 (nothing else tested yet)
- * Requires PHP: 5.3.2 (not tested, could work)
+ * Requires PHP: 5.6.0 (not tested, could work)
  * Author:      Sven Ullmann
  * Author URI:  https://www.sumedia-webdesign.de
  * License:     GPL v3
@@ -44,7 +44,9 @@ if (!function_exists( 'add_filter')) {
     exit();
 }
 
-if (-1 == version_compare(PHP_VERSION, '5.3.2')) {
+
+
+if (-1 == version_compare(PHP_VERSION, '5.6.0')) {
     error_log('Sumedia: PHP Version to low');
     function sumedia_base_phpversionlow_message()
     {
@@ -53,39 +55,24 @@ if (-1 == version_compare(PHP_VERSION, '5.3.2')) {
     add_action('admin_notices', 'sumedia_base_phpversionlow_message');
 } else {
 
-    add_action('plugins_loaded', 'sumedia_base_initialize', 1);
+    define('SUMEDIA_BASE_VERSION', '0.1.0');
+    define('SUMEDIA_PLUGIN_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
+    define('SUMEDIA_PLUGIN_URL', plugin_dir_url(__DIR__));
+    define('SUMEDIA_BASE_PLUGIN_NAME', dirname(plugin_basename(__FILE__)));
 
-    function sumedia_base_initialize()
+    require_once(__DIR__ . str_replace('/', DIRECTORY_SEPARATOR, '/inc/functions.php'));
+
+    require_once(SUMEDIA_PLUGIN_PATH . Suma\DS . SUMEDIA_BASE_PLUGIN_NAME . Suma\ds('/inc/class-autoloader.php'));
+    $autoloader = Sumedia_Base_Autoloader::get_instance();
+    $autoloader->register_autoload_dir(SUMEDIA_BASE_PLUGIN_NAME, Suma\ds('admin/menu'));
+    $autoloader->register_autoload_dir(SUMEDIA_BASE_PLUGIN_NAME, Suma\ds('admin/view'));
+    $autoloader->register_autoload_dir(SUMEDIA_BASE_PLUGIN_NAME, 'inc');
+    $autoloader->register_autoloader();
+
+    add_action('init', 'sumedia_base_init', 1);
+    function sumedia_base_init()
     {
-        if (defined('SUMEDIA_BASE_VERSION')) {
-            return;
-        }
-
-        if (!defined('DS')) {
-            define('DS', DIRECTORY_SEPARATOR);
-        }
-
-        if (!function_exists('ds')) {
-            function ds($path) {
-                return str_replace('/', DS, $path);
-            }
-        }
-
-        define('SUMEDIA_BASE_VERSION', '0.1.0');
-        define('SUMEDIA_PLUGIN_PATH', dirname(__DIR__) . DS);
-        define('SUMEDIA_PLUGIN_URL', plugin_dir_url(__DIR__));
-        define('SUMEDIA_BASE_PLUGIN_NAME', dirname(plugin_basename(__FILE__)));
-
-        require_once(SUMEDIA_PLUGIN_PATH . DS . SUMEDIA_BASE_PLUGIN_NAME . ds('/inc/class-autoloader.php'));
-        $autoloader = Sumedia_Base_Autoloader::get_instance();
-        $autoloader->register_autoload_dir(SUMEDIA_BASE_PLUGIN_NAME, ds('admin/menu'));
-        $autoloader->register_autoload_dir(SUMEDIA_BASE_PLUGIN_NAME, ds('admin/view'));
-        $autoloader->register_autoload_dir(SUMEDIA_BASE_PLUGIN_NAME, 'inc');
-        $autoloader->register_autoloader();
-
         $plugin = new Sumedia_Base_Plugin();
-        $plugin->textdomain();
-        $plugin->view();
-        $plugin->menu();
+        $plugin->init();
     }
 }
