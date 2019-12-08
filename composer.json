@@ -2,7 +2,7 @@
     "name": "sumedia-wordpress/base",
     "description": "Base components needed by Sumedia Plugins",
     "type": "wordpress-plugin",
-    "license": "GPLv3",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "Sven Ullmann",
