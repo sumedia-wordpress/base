@@ -61,17 +61,29 @@ if (-1 == version_compare(PHP_VERSION, '5.6.0')) {
     }
     if (!defined('SUMEDIA_PLUGIN_PATH')) {
         define('SUMEDIA_PLUGIN_URL', plugin_dir_url(__DIR__));
+        define('SUMEDIA_BASE_PLUGIN_URL', SUMEDIA_PLUGIN_URL);
+    } else {
+        define('SUMEDIA_BASE_PLUGIN_URL', SUMEDIA_PLUGIN_URL . DIRECTORY_SEPARATOR . str_replace(SUMEDIA_PLUGIN_PATH, '', __DIR__) . DIRECTORY_SEPARATOR);
     }
+
     define('SUMEDIA_BASE_PLUGIN_NAME', 'sumedia-base');
 
     require_once(__DIR__ . str_replace('/', DIRECTORY_SEPARATOR, '/inc/functions.php'));
 
     require_once(__DIR__ . Suma\ds('/inc/class-autoloader.php'));
     $autoloader = Sumedia_Base_Autoloader::get_instance();
-    $autoloader->register_autoload_dir(SUMEDIA_BASE_PLUGIN_NAME, Suma\ds('admin/menu'));
-    $autoloader->register_autoload_dir(SUMEDIA_BASE_PLUGIN_NAME, Suma\ds('admin/view'));
-    $autoloader->register_autoload_dir(SUMEDIA_BASE_PLUGIN_NAME, 'inc');
     $autoloader->register_autoloader();
+    $autoloader->register_autload_map([
+        'Sumedia_Base_Admin_View_Heading' => __DIR__ . Suma\ds('/admin/view/class-admin-view-heading.php'),
+        'Sumedia_Base_Admin_View_Menu' => __DIR__ . Suma\ds('/admin/view/class-admin-view-menu.php'),
+        'Sumedia_Base_Admin_View_Overview' => __DIR__ . Suma\ds('/admin/view/class-admin-view-overview.php'),
+        'Sumedia_Base_Admin_View_Plugins' => __DIR__ . Suma\ds('/admin/view/class-admin-view-plugins.php'),
+        'Sumedia_Base_Autoloader' => __DIR__ . Suma\ds('/inc/class-autoloader.php'),
+        'Sumedia_Base_Event' => __DIR__ . Suma\ds('/inc/class-event.php'),
+        'Sumedia_Base_Plugin' => __DIR__ . Suma\ds('/inc/class-plugin.php'),
+        'Sumedia_Base_Registry' => __DIR__ . Suma\ds('/inc/class-registry.php'),
+        'Sumedia_Base_View' => __DIR__ . Suma\ds('/inc/class-view.php'),
+    ]);
 
     add_action('plugins_loaded', 'sumedia_base_textdomain');
     function sumedia_base_textdomain()

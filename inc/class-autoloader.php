@@ -21,6 +21,11 @@ class Sumedia_Base_Autoloader
      */
     protected $priorities = [];
 
+    /**
+     * @var array
+     */
+    protected $map = [];
+
     protected function __construct()
     {
     }
@@ -41,6 +46,11 @@ class Sumedia_Base_Autoloader
      */
     public function autoload($class)
     {
+        if (isset($this->map[$class])) {
+            require_once $this->map[$class];
+            return;
+        }
+
         $class_components = str_replace('_', '-', $class);
         $parts = explode('-', $class_components);
         do {
@@ -77,6 +87,14 @@ class Sumedia_Base_Autoloader
             $this->priorities[$plugin][] = $priority;
             $this->sort_directories($plugin);
         }
+    }
+
+    /**
+     * @param array $map
+     */
+    public function register_autload_map($map)
+    {
+        $this->map = array_replace($this->map, $map);
     }
 
     protected function sort_directories($plugin)

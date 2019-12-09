@@ -6,7 +6,7 @@ class Sumedia_Base_Admin_View_Menu extends Sumedia_Base_Admin_View_Overview
 
     public $menu_title = 'Sumedia Plugins';
 
-    public $icon_file = SUMEDIA_PLUGIN_URL . SUMEDIA_BASE_PLUGIN_NAME . '/assets/images/kolibri-icon-x32.png';
+    public $icon_file = SUMEDIA_BASE_PLUGIN_URL . SUMEDIA_BASE_PLUGIN_NAME . '/assets/images/kolibri-icon-x32.png';
 
     public $slug = 'sumedia';
 
