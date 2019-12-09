@@ -66,7 +66,7 @@ if (-1 == version_compare(PHP_VERSION, '5.6.0')) {
 
     require_once(__DIR__ . str_replace('/', DIRECTORY_SEPARATOR, '/inc/functions.php'));
 
-    require_once(SUMEDIA_PLUGIN_PATH . Suma\DS . SUMEDIA_BASE_PLUGIN_NAME . Suma\ds('/inc/class-autoloader.php'));
+    require_once(__DIR__ . Suma\ds('/inc/class-autoloader.php'));
     $autoloader = Sumedia_Base_Autoloader::get_instance();
     $autoloader->register_autoload_dir(SUMEDIA_BASE_PLUGIN_NAME, Suma\ds('admin/menu'));
     $autoloader->register_autoload_dir(SUMEDIA_BASE_PLUGIN_NAME, Suma\ds('admin/view'));
