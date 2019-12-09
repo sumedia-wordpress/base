@@ -59,13 +59,18 @@ if (-1 == version_compare(PHP_VERSION, '5.6.0')) {
     if (!defined('SUMEDIA_PLUGIN_PATH')) {
         define('SUMEDIA_PLUGIN_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
     }
-    if (!defined('SUMEDIA_PLUGIN_PATH')) {
+    if (!defined('SUMEDIA_PLUGIN_URL')) {
         define('SUMEDIA_PLUGIN_URL', plugin_dir_url(__DIR__));
-        define('SUMEDIA_BASE_PLUGIN_URL', SUMEDIA_PLUGIN_URL);
-    } else {
-        define('SUMEDIA_BASE_PLUGIN_URL', SUMEDIA_PLUGIN_URL . DIRECTORY_SEPARATOR . str_replace(SUMEDIA_PLUGIN_PATH, '', __DIR__) . DIRECTORY_SEPARATOR);
     }
-
+    if (!defined('SUMEDIA_BASE_INLCUDING_PLUGIN')) {
+        define('SUMEDIA_BASE_INLCUDING_PLUGIN', basename(__DIR__));
+    }
+    if (!defined('SUMEDIA_BASE_PATH')) {
+        define('SUMEDIA_BASE_PATH', dirname(__FILE__) . str_replace('/', DIRECTORY_SEPARATOR, '/vendor/sumedia-wordpress/base'));
+    }
+    if (!defined('SUMEDIA_BASE_URL')) {
+        define('SUMEDIA_BASE_URL', SUMEDIA_PLUGIN_URL . SUMEDIA_BASE_INLCUDING_PLUGIN . '/vendor/sumedia-wordpress/base');
+    }
     define('SUMEDIA_BASE_PLUGIN_NAME', 'sumedia-base');
 
     require_once(__DIR__ . str_replace('/', DIRECTORY_SEPARATOR, '/inc/functions.php'));

@@ -61,7 +61,7 @@ class Sumedia_Base_Autoloader
         if (isset($this->directories[$plugin])) {
             foreach ($this->directories[$plugin] as $dir) {
                 $class_file_name = strtolower(substr($class_components, strlen($plugin)+1));
-                $file = SUMEDIA_PLUGIN_PATH . $plugin . '/' . $dir . '/class-' . $class_file_name . '.php';
+                $file = Suma\ds(SUMEDIA_PLUGIN_PATH . '/' . $plugin . '/' . $dir . '/class-' . $class_file_name . '.php');
                 if (file_exists($file)) {
                     require_once $file;
                     break;

@@ -4,23 +4,11 @@ class Sumedia_Base_Plugin
 {
     public function init()
     {
-        $this->textdomain();
         $this->view_heading();
         $this->view_plugins();
         $this->view_menu();
         $this->view_admin_stylesheet();
         $this->menu();
-    }
-
-    public function textdomain()
-    {
-        $event = new Sumedia_Base_Event(function () {
-        load_plugin_textdomain(
-            'sumedia-base',
-            false,
-            SUMEDIA_BASE_PLUGIN_NAME . '/languages/');
-        });
-        add_action('plugins_loaded', [$event, 'execute']);
     }
 
     public function view_heading()
@@ -47,7 +35,7 @@ class Sumedia_Base_Plugin
     public function view_admin_stylesheet()
     {
         $event = new Sumedia_Base_Event(function(){
-            $cssFile = SUMEDIA_PLUGIN_URL . SUMEDIA_BASE_PLUGIN_NAME . '/assets/css/style.css';
+            $cssFile = SUMEDIA_BASE_URL . '/assets/css/style.css';
             wp_enqueue_style('sumedia_base_style', $cssFile);
         });
         add_action('admin_print_styles', [$event, 'execute']);
