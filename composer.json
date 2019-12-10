@@ -9,5 +9,5 @@
             "email": "sumedia-wordpress@sumedia-webdesign.de"
         }
     ],
-    "minimum-stability": "stable"
+    "minimum-stability": "dev"
 }

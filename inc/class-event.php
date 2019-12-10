@@ -8,10 +8,16 @@ class Sumedia_Base_Event
     protected $callback;
 
     /**
+     * @var string
+     */
+    protected $name;
+
+    /**
      * Sumedia_Base_Event constructor.
      */
-    public function __construct($callback){
+    public function __construct($callback, $name = "sumedia-event"){
         $this->callback = $callback;
+        $this->name = $name;
     }
 
     public function execute() {

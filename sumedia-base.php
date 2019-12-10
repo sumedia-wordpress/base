@@ -8,7 +8,7 @@
  * @license     http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License, version 3 or higher
  *
  * @wordpress-plugin
- * Plugin Name: Sumedia Base
+ * Plugin Name: sumedia-base
  * Plugin URI:  https://github.com/sumedia-wordpress/base
  * Description: Needed by other Sumedia Wordpress Projects
  * Version:     0.1.1
@@ -16,7 +16,7 @@
  * Requires PHP: 5.6.0 (not tested, could work)
  * Author:      Sven Ullmann
  * Author URI:  https://www.sumedia-webdesign.de
- * License:     GPL v3
+ * License:     GPL-3.0-or-later
  * Text Domain: sumedia-base
  * Domain Path: /languages/
  * Bug Reporting: https://github.com/sumedia-wordpress/base/issues
@@ -43,8 +43,6 @@ if (!function_exists( 'add_filter')) {
     header( 'HTTP/1.1 403 Forbidden' );
     exit();
 }
-
-
 
 if (-1 == version_compare(PHP_VERSION, '5.6.0')) {
     error_log('Sumedia: PHP Version to low');
