@@ -6,13 +6,18 @@ if (!defined('SUMEDIA_BASE_VERSION')) {
     exit();
 }
 
-$heading = $this->get('sumedia_base_admin_view_heading');
-
 ?>
 <div class="suma-content">
     <div class="suma-heading">
-        <img src="<?php echo esc_attr($heading->iconfile); ?>" alt="<?php echo esc_attr($heading->title); ?>" />
-        <h1><?php echo esc_html($heading->title); ?> <small>&ndash; <?php echo esc_html($heading->side_title); ?></small></h1>
-        <small><?php echo esc_html(__('Version', 'sumedia-base')); ?>: <?php echo esc_html($heading->version); ?></small>
+        <img src="<?php echo esc_attr($this->get_iconfile()); ?>" alt="<?php echo esc_attr($this->get_title()); ?>" />
+        <h1><?php echo esc_html($this->get_title()); ?> <small>&ndash; <?php echo esc_html($this->get_side_title()); ?></small></h1>
+        <small><?php echo esc_html(__('Version', 'sumedia-base')); ?>: <?php echo esc_html($this->get_version()); ?></small>
     </div>
 </div>
+<?php if (!empty($this->get_options())) : ?>
+    <div class="suma-heading-options">
+        <?php foreach ($this->get_options() as $data) : ?>
+            <a href="<?php echo esc_url($data['url']); ?>"><?php echo esc_html($data['name']); ?></a>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>

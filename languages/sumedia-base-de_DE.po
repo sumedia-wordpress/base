@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Sumedia Base\n"
-"POT-Creation-Date: 2019-12-08 21:51+0100\n"
-"PO-Revision-Date: 2019-12-08 21:51+0100\n"
+"POT-Creation-Date: 2019-12-14 03:07+0100\n"
+"PO-Revision-Date: 2019-12-14 03:08+0100\n"
 "Last-Translator: Sven Ullmann <kontakt@sumedia-webdesign.de>\n"
 "Language-Team: Sven Ullmann <kontakt@sumedia-webdesign.de>\n"
 "Language: de_DE\n"
@@ -21,29 +21,72 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
-#: admin/view/class-admin-view-heading.php:16
+#: admin/view/class-admin-view-heading.php:33
+#: admin/view/class-admin-view-menu.php:33
+#: admin/view/class-admin-view-menu.php:34
 msgid "Sumedia Plugins"
 msgstr "Sumedia Plugins"
 
-#: admin/view/class-admin-view-heading.php:17
+#: admin/view/class-admin-view-heading.php:34
 msgid "Plugin Overview"
 msgstr "Plugin Übersicht"
 
-#: sumedia-base.php:53
-msgid "Your PHP version is to low for using Sumedia"
-msgstr "Ihre PHP Version ist für Sumedia Plugins zu niedrig"
+#: admin/view/class-admin-view-menu.php:45
+msgid "Sumedia"
+msgstr "Sumedia"
 
-#: admin/templates/heading.phtml:16
+#: inc/class-messenger.php:53
+msgid "The given message is not of type string"
+msgstr "Die übergebene Mitteilung ist kein String"
+
+#: inc/class-repository.php:59
+msgid "\"row_count\" is not numeric"
+msgstr "\"row_count\" ist nicht numerisch"
+
+#: inc/class-repository.php:63
+msgid "\"offset\" is not numeric"
+msgstr "\"offset\" is nicht numerisch"
+
+#: inc/class-repository.php:160
+msgid "Given value is not a string"
+msgstr "Der übergebene Wert is kein String"
+
+#: inc/class-repository.php:164
+msgid "Given field is not a string"
+msgstr "Das übergebene Feld is kein String"
+
+#: inc/class-repository.php:200
+msgid "There is more than one result for findOne"
+msgstr "Es gibt mehr als ein Ergebniss für fineOne"
+
+#: inc/class-repository.php:211 inc/class-repository.php:228
+msgid "Given id is not in correct type"
+msgstr "Die übergebene ID ist nicht vom korrekten Typ"
+
+#: inc/class-repository.php:232 inc/class-repository.php:253
+msgid "Got invalid data"
+msgstr "Fehlerhafte Daten"
+
+#: inc/class-view.php:47
+#, php-format
+msgid "No property setted with name \"%s\""
+msgstr "Diese Variable existiert nicht \"%s\""
+
+#: sumedia-base.php:51
+msgid "Your PHP version is to low for using Sumedia plugins."
+msgstr "Ihre PHP Version ist für Sumedia Plugins zu niedrig."
+
+#: admin/templates/heading.phtml:14 admin/templates/plugins.phtml:15
 msgid "Version"
 msgstr "Version"
 
 #. Plugin Name of the plugin/theme
-msgid "Sumedia Base"
-msgstr "Sumedia Base"
+msgid "sumedia-base"
+msgstr "sumedia-base"
 
 #. Plugin URI of the plugin/theme
 msgid "https://github.com/sumedia-wordpress/base"
-msgstr ""
+msgstr "https://github.com/sumedia-wordpress/base"
 
 #. Description of the plugin/theme
 msgid "Needed by other Sumedia Wordpress Projects"
@@ -55,4 +98,4 @@ msgstr "Sven Ullmann"
 
 #. Author URI of the plugin/theme
 msgid "https://www.sumedia-webdesign.de"
-msgstr ""
+msgstr "https://www.sumedia-webdesign.de"

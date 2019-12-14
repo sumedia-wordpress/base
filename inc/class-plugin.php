@@ -4,58 +4,36 @@ class Sumedia_Base_Plugin
 {
     public function init()
     {
-        $this->view_heading();
-        $this->view_plugins();
-        $this->view_menu();
-        $this->view_admin_stylesheet();
-        $this->menu();
+        add_action('plugins_loaded', [$this, 'textdomain']);
+        add_action('admin_print_styles', [$this, 'admin_stylesheets']);
+        add_action('admin_menu', [$this, 'setup_menu']);
     }
 
-    public function view_heading()
+    public function textdomain()
     {
-        $view = Sumedia_Base_Registry::get_instance('view');
-        $heading = new Sumedia_Base_Admin_View_Heading();
-        $view->set('sumedia_base_admin_view_heading', $heading);
+        load_plugin_textdomain(
+            'sumedia-base',
+            false,
+            SUMEDIA_BASE_PLUGIN_NAME . DIRECTORY_SEPARATOR . 'languages'
+        );
     }
 
-    public function view_plugins()
+    public function admin_stylesheets()
     {
-        $view = Sumedia_Base_Registry::get_instance('view');
-        $plugins = new Sumedia_Base_Admin_View_Plugins();
-        $view->set('sumedia_base_admin_view_plugins', $plugins);
+        $cssFile = SUMEDIA_BASE_URL . '/assets/css/style.css';
+        wp_enqueue_style('sumedia_base_style', $cssFile);
     }
 
-    public function view_menu()
+    public function setup_menu()
     {
-        $view = Sumedia_Base_Registry::get_instance('view');
-        $menu = new Sumedia_Base_Admin_View_Menu();
-        $view->set('sumedia_base_admin_view_menu', $menu);
-    }
-
-    public function view_admin_stylesheet()
-    {
-        $event = new Sumedia_Base_Event(function(){
-            $cssFile = SUMEDIA_BASE_URL . '/assets/css/style.css';
-            wp_enqueue_style('sumedia_base_style', $cssFile);
-        });
-        add_action('admin_print_styles', [$event, 'execute']);
-    }
-
-    public function menu()
-    {
-        $event = new Sumedia_Base_Event(function () {
-            $view = Sumedia_Base_Registry::get_instance('view');
-            $menu = $view->get('sumedia_base_admin_view_menu');
-
-            add_plugins_page(
-                $menu->page_title,
-                $menu->build_iconified_title(),
-                'manage_options',
-                $menu->slug,
-                [$menu, 'render'],
-                $menu->pos
-            );
-        });
-        add_action('admin_menu', [$event, 'execute']);
+        $menu = Sumedia_Base_Registry_View::get('Sumedia_Base_Admin_View_Menu');
+        add_plugins_page(
+            $menu->get_page_title(),
+            $menu->build_iconified_title(),
+            'manage_options',
+            $menu->get_slug(),
+            [$menu, 'render'],
+            $menu->get_pos()
+        );
     }
 }

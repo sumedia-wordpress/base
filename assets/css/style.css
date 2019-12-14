@@ -11,13 +11,33 @@
 }
 
 .suma-wrap fieldset {
-    margin-top:10px;
     border:1px solid #ccc;
     padding:20px;
 }
 
 .suma-wrap fieldset legend {
-    margin-left:20px;
+    padding:0;
+}
+
+ul.message {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-left-width: 4px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+    margin: 10px 0;
+    padding: 8px 20px;
+}
+
+ul.error {
+    border-left-color: #dc3232;
+}
+
+ul.warning {
+    border-left-color: #ffb900;
+}
+
+ul.success {
+    border-left-color: #46b450;
 }
 
 .suma-wrap .nav-tab-wrapper {
@@ -26,6 +46,7 @@
 }
 
 .suma-wrap .suma-form-option {
+    clear:both;
     margin:0 0 10px 0;
 }
 
@@ -35,6 +56,12 @@
     width:100px;
     display:inline-block;
     float:left;
+}
+
+.suma-wrap .suma-form-actions {
+    margin:5px 0;
+    border:1px solid #ccc;
+    padding:10px;
 }
 
 .suma-wrap .suma-form-input input {
@@ -64,7 +91,7 @@
 }
 
 .suma-wrap .suma-heading img {
-    height:24px;
+    height:38px;
     float:left;
     margin-right:15px;
 }
@@ -84,6 +111,25 @@
     line-height:1em;
 }
 
+.suma-wrap .suma-heading-options {
+    margin: -20px 0 0;
+    background:#555;
+    color:#fff;
+    padding:4px 10px;
+    font-size:.9em;
+}
+
+.suma-wrap .suma-heading-options a {
+    color:#fff;
+}
+
+.suma-wrap .suma-overview-plugins:after {
+    content:'';
+    display:block;
+    height:0;
+    clear:both;
+}
+
 .suma-wrap .suma-overview-plugin {
     border:1px solid #ccc;
     border-top:2px solid #c90;
@@ -92,6 +138,12 @@
     margin-right:10px;
     margin-bottom:10px;
     position:relative;
+    width:calc(50% - 38px);
+    float:left;
+}
+
+.suma-wrap .suma-overview-plugin:nth-of-type(2n) {
+    margin-right:0;
 }
 
 .suma-wrap .suma-overview-plugin h3 {
@@ -108,16 +160,16 @@
 }
 
 .suma-wrap .suma-overview-plugin .sumedia-overview-plugin-description {
-    float:left;
-    width:75%;
+    display:inline-block;
+    width:calc(75% - 30px);
 }
 
 .suma-wrap .suma-overview-plugin .sumedia-overview-plugin-actions {
-    float:right;
-    max-width:25%;
-    min-width:180px;
+    display:inline-block;
     text-align:left;
     border-left:1px solid #ddd;
+    vertical-align:top;
+    margin-left:10px;
 }
 
 .suma-wrap .suma-overview-plugin .sumedia-overview-plugin-actions p {

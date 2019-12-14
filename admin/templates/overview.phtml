@@ -6,11 +6,16 @@ if (!defined('SUMEDIA_BASE_VERSION')) {
     exit();
 }
 
-$heading = $this->get('sumedia_base_admin_view_heading');
-$plugins = $this->get('sumedia_base_admin_view_plugins');
-
 ?>
 <div class="wrap suma-wrap">
-    <?php $heading->render(); ?>
-    <?php $plugins->render(); ?>
+
+    <?php
+        if ($this->get_heading_view()) {
+            $this->get_heading_view()->render();
+        }
+
+        if ($this->get_content_view()) {
+            $this->get_content_view()->render();
+        }
+    ?>
 </div>

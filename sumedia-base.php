@@ -11,7 +11,7 @@
  * Plugin Name: sumedia-base
  * Plugin URI:  https://github.com/sumedia-wordpress/base
  * Description: Needed by other Sumedia Wordpress Projects
- * Version:     0.1.1
+ * Version:     0.2.0
  * Requires at least: 5.3 (nothing else tested yet)
  * Requires PHP: 5.6.0 (not tested, could work)
  * Author:      Sven Ullmann
@@ -48,12 +48,12 @@ if (-1 == version_compare(PHP_VERSION, '5.6.0')) {
     error_log('Sumedia: PHP Version to low');
     function sumedia_base_phpversionlow_message()
     {
-        return print '<div id="message" class="error fade"><p>' . __('Your PHP version is to low for using Sumedia') . '</p></div>';
+        return print '<div id="message" class="error fade"><p>' . __('Your PHP version is to low for using Sumedia plugins.') . '</p></div>';
     }
     add_action('admin_notices', 'sumedia_base_phpversionlow_message');
 } else {
 
-    define('SUMEDIA_BASE_VERSION', '0.1.1');
+    define('SUMEDIA_BASE_VERSION', '0.2.0');
     if (!defined('SUMEDIA_PLUGIN_PATH')) {
         define('SUMEDIA_PLUGIN_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
     }
@@ -71,36 +71,30 @@ if (-1 == version_compare(PHP_VERSION, '5.6.0')) {
     }
     define('SUMEDIA_BASE_PLUGIN_NAME', 'sumedia-base');
 
-    require_once(__DIR__ . str_replace('/', DIRECTORY_SEPARATOR, '/inc/functions.php'));
-
+    require_once(__DIR__ . DIRECTORY_SEPARATOR . 'inc' . DIRECTORY_SEPARATOR . 'functions.php');
     require_once(__DIR__ . Suma\ds('/inc/class-autoloader.php'));
+
     $autoloader = Sumedia_Base_Autoloader::get_instance();
     $autoloader->register_autoloader();
     $autoloader->register_autload_map([
+        'Sumedia_Base_Controller' => __DIR__ . Suma\ds('/inc/class-controller.php'),
         'Sumedia_Base_Admin_View_Heading' => __DIR__ . Suma\ds('/admin/view/class-admin-view-heading.php'),
         'Sumedia_Base_Admin_View_Menu' => __DIR__ . Suma\ds('/admin/view/class-admin-view-menu.php'),
         'Sumedia_Base_Admin_View_Overview' => __DIR__ . Suma\ds('/admin/view/class-admin-view-overview.php'),
         'Sumedia_Base_Admin_View_Plugins' => __DIR__ . Suma\ds('/admin/view/class-admin-view-plugins.php'),
         'Sumedia_Base_Autoloader' => __DIR__ . Suma\ds('/inc/class-autoloader.php'),
         'Sumedia_Base_Event' => __DIR__ . Suma\ds('/inc/class-event.php'),
+        'Sumedia_Base_Form' => __DIR__ . Suma\ds('/inc/class-form.php'),
         'Sumedia_Base_Plugin' => __DIR__ . Suma\ds('/inc/class-plugin.php'),
+        'Sumedia_Base_Messenger' => __DIR__ . Suma\ds('/inc/class-messenger.php'),
         'Sumedia_Base_Registry' => __DIR__ . Suma\ds('/inc/class-registry.php'),
-        'Sumedia_Base_View' => __DIR__ . Suma\ds('/inc/class-view.php'),
+        'Sumedia_Base_Registry_View' => __DIR__ . Suma\ds('/inc/class-registry-view.php'),
+        'Sumedia_Base_Registry_Form' => __DIR__ . Suma\ds('/inc/class-registry-form.php'),
+        'Sumedia_Base_Repository' => __DIR__ . Suma\ds('/inc/class-repository.php'),
+        'Sumedia_Base_View' => __DIR__ . Suma\ds('/inc/class-view.php')
     ]);
 
-    add_action('plugins_loaded', 'sumedia_base_textdomain');
-    function sumedia_base_textdomain()
-    {
-        load_plugin_textdomain(
-            'sumedia-base',
-            false,
-            SUMEDIA_BASE_PLUGIN_NAME . DIRECTORY_SEPARATOR . 'languages');
-    }
+    $plugin = new Sumedia_Base_Plugin();
+    $plugin->init();
 
-    add_action('init', 'sumedia_base_init', 1);
-    function sumedia_base_init()
-    {
-        $plugin = new Sumedia_Base_Plugin();
-        $plugin->init();
-    }
 }

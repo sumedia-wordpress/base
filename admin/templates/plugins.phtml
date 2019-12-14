@@ -6,15 +6,55 @@ if (!defined('SUMEDIA_BASE_VERSION')) {
     exit();
 }
 
-$plugins = $this->get('sumedia_base_admin_view_plugins');
-
 ?>
 <div class="wrap suma-content">
     <div class="suma-overview-plugins">
-        <?php foreach ($plugins->plugins as $plugin) : ?>
+        <?php foreach ($this->plugins as $plugin_code => $plugin) : ?>
             <div class="suma-overview-plugin">
-                <?php require $plugin['description_template']; ?>
+                <h3><?php echo esc_html($plugin['name']); ?></h3>
+                <small><?php echo esc_html(__('Version')); ?>: <?php echo esc_html($plugin_code); ?> - <?php echo esc_html($plugin['version']); ?></small>
+                <div class="sumedia-overview-plugin">
+                    <div class="sumedia-overview-plugin-description">
+                        <?php require $plugin['description_template']; ?>
+                    </div>
+                    <div class="sumedia-overview-plugin-actions">
+                        <p>
+                            <?php foreach ($plugin['options'] as $data) : ?>
+                                <a href="<?php echo esc_url($data['url']); ?>"><?php echo esc_html($data['name']); ?></a><br />
+                            <?php endforeach; ?>
+                        </p>
+                    </div>
+                </div>
             </div>
         <?php endforeach; ?>
     </div>
 </div>
+<script type="text/javascript">
+    (function($){
+
+        var fit_to_height = function()
+        {
+            let i = 0;
+            let height = null;
+            let last = null;
+            $('.suma-wrap .suma-overview-plugin').each(function(){
+                $(this).css('height', 'auto');
+                i++;
+                if (i % 2 == 0) {
+                    if ($(this).height() > height) {
+                        $(last).height($(this).height());
+                    } else {
+                        $(this).height(height);
+                    }
+                } else {
+                    height = $(this).height();
+                    last = this;
+                }
+            });
+        }
+
+        $(document).ready(fit_to_height);
+        $(window).resize(fit_to_height);
+
+    }(jQuery));
+</script>
