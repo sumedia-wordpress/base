@@ -15,8 +15,8 @@ class Sumedia_Base_Admin_View_Overview extends Sumedia_Base_View
     public function __construct()
     {
         $this->set_template(Suma\ds(SUMEDIA_BASE_PATH . '/admin/templates/overview.phtml'));
-        $this->set_heading_view(Sumedia_Base_Registry_View::get('Sumedia_Base_Admin_View_Heading'));
-        $this->set_content_view(Sumedia_Base_Registry_View::get('Sumedia_Base_Admin_View_Plugins'));
+        $this->set_heading_view(Sumedia_Base_Registry::get('Sumedia_Base_Admin_View_Heading'));
+        $this->set_content_view(Sumedia_Base_Registry::get('Sumedia_Base_Admin_View_Plugins'));
     }
 
     /**

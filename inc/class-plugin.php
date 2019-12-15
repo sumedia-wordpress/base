@@ -26,7 +26,7 @@ class Sumedia_Base_Plugin
 
     public function setup_menu()
     {
-        $menu = Sumedia_Base_Registry_View::get('Sumedia_Base_Admin_View_Menu');
+        $menu = Sumedia_Base_Registry::get('Sumedia_Base_Admin_View_Menu');
         add_plugins_page(
             $menu->get_page_title(),
             $menu->build_iconified_title(),

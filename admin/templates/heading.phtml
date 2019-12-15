@@ -16,8 +16,11 @@ if (!defined('SUMEDIA_BASE_VERSION')) {
 </div>
 <?php if (!empty($this->get_options())) : ?>
     <div class="suma-heading-options">
-        <?php foreach ($this->get_options() as $data) : ?>
+        <?php $i = 1; foreach ($this->get_options() as $data) : ?>
             <a href="<?php echo esc_url($data['url']); ?>"><?php echo esc_html($data['name']); ?></a>
+            <?php if ($i++ < count($this->get_options())) : ?>
+                &nbsp; | &nbsp;
+            <?php endif; ?>
         <?php endforeach; ?>
     </div>
 <?php endif; ?>

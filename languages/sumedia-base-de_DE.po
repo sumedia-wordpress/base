@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Sumedia Base\n"
-"POT-Creation-Date: 2019-12-14 03:07+0100\n"
-"PO-Revision-Date: 2019-12-14 03:08+0100\n"
+"POT-Creation-Date: 2019-12-15 15:05+0100\n"
+"PO-Revision-Date: 2019-12-15 15:05+0100\n"
 "Last-Translator: Sven Ullmann <kontakt@sumedia-webdesign.de>\n"
 "Language-Team: Sven Ullmann <kontakt@sumedia-webdesign.de>\n"
 "Language: de_DE\n"
@@ -39,31 +39,31 @@ msgstr "Sumedia"
 msgid "The given message is not of type string"
 msgstr "Die übergebene Mitteilung ist kein String"
 
-#: inc/class-repository.php:59
+#: inc/class-repository.php:38
 msgid "\"row_count\" is not numeric"
 msgstr "\"row_count\" ist nicht numerisch"
 
-#: inc/class-repository.php:63
+#: inc/class-repository.php:42
 msgid "\"offset\" is not numeric"
 msgstr "\"offset\" is nicht numerisch"
 
-#: inc/class-repository.php:160
+#: inc/class-repository.php:139
 msgid "Given value is not a string"
 msgstr "Der übergebene Wert is kein String"
 
-#: inc/class-repository.php:164
+#: inc/class-repository.php:143
 msgid "Given field is not a string"
 msgstr "Das übergebene Feld is kein String"
 
-#: inc/class-repository.php:200
+#: inc/class-repository.php:179
 msgid "There is more than one result for findOne"
 msgstr "Es gibt mehr als ein Ergebniss für fineOne"
 
-#: inc/class-repository.php:211 inc/class-repository.php:228
+#: inc/class-repository.php:190 inc/class-repository.php:207
 msgid "Given id is not in correct type"
 msgstr "Die übergebene ID ist nicht vom korrekten Typ"
 
-#: inc/class-repository.php:232 inc/class-repository.php:253
+#: inc/class-repository.php:211 inc/class-repository.php:232
 msgid "Got invalid data"
 msgstr "Fehlerhafte Daten"
 
@@ -81,8 +81,8 @@ msgid "Version"
 msgstr "Version"
 
 #. Plugin Name of the plugin/theme
-msgid "sumedia-base"
-msgstr "sumedia-base"
+msgid "Sumedia Base"
+msgstr "Sumedia Base"
 
 #. Plugin URI of the plugin/theme
 msgid "https://github.com/sumedia-wordpress/base"

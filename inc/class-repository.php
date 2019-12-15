@@ -3,11 +3,6 @@
 abstract class Sumedia_Base_Repository
 {
     /**
-     * @var $this
-     */
-    protected static $instance;
-
-    /**
      * @var int
      */
     protected $row_count;
@@ -21,22 +16,6 @@ abstract class Sumedia_Base_Repository
      * @var array
      */
     protected $orders = [];
-
-    /**
-     * Sumedia_Base_Repository constructor.
-     */
-    protected function __construct(){}
-
-    /**
-     * @return $this
-     */
-    public static function get_instance()
-    {
-        if (null == static::$instance) {
-            static::$instance = new static();
-        }
-        return static::$instance;
-    }
 
     /**
      * @return string
